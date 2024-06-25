@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="GHIDRA_EXT" name="Ghidra">
+      <configuration>
+        <option name="extensionInstallationPaths">
+          <list>
+            <option value="$USER_HOME$/.ghidra/.ghidra_11.0.3_PUBLIC/Extensions" />
+            <option value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Extensions" />
+          </list>
+        </option>
+        <option name="installationPath" value="/opt/ghidra_11.0.3_PUBLIC" />
+        <option name="modules">
+          <map>
+            <entry key="6502" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/6502" />
+            <entry key="68000" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/68000" />
+            <entry key="8048" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/8048" />
+            <entry key="8051" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/8051" />
+            <entry key="8085" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/8085" />
+            <entry key="AARCH64" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/AARCH64" />
+            <entry key="ARM" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/ARM" />
+            <entry key="AnnotationValidator" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Debug/AnnotationValidator" />
+            <entry key="Atmel" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/Atmel" />
+            <entry key="BPF" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/BPF" />
+            <entry key="BSim" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/BSim" />
+            <entry key="BSimFeatureVisualizer" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/BSimFeatureVisualizer" />
+            <entry key="Base" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/Base" />
+            <entry key="BytePatterns" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/BytePatterns" />
+            <entry key="ByteViewer" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/ByteViewer" />
+            <entry key="CP1600" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/CP1600" />
+            <entry key="CR16" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/CR16" />
+            <entry key="CodeCompare" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/CodeCompare" />
+            <entry key="DATA" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/DATA" />
+            <entry key="DB" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Framework/DB" />
+            <entry key="DMG" value="/opt/ghidra_11.0.3_PUBLIC/GPL/DMG" />
+            <entry key="Dalvik" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/Dalvik" />
+            <entry key="DebugUtils" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/DebugUtils" />
+            <entry key="Debugger" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Debug/Debugger" />
+            <entry key="Debugger-agent-dbgeng" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Debug/Debugger-agent-dbgeng" />
+            <entry key="Debugger-agent-dbgmodel" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Debug/Debugger-agent-dbgmodel" />
+            <entry key="Debugger-agent-dbgmodel-traceloader" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Debug/Debugger-agent-dbgmodel-traceloader" />
+            <entry key="Debugger-agent-frida" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Debug/Debugger-agent-frida" />
+            <entry key="Debugger-agent-gdb" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Debug/Debugger-agent-gdb" />
+            <entry key="Debugger-agent-lldb" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Debug/Debugger-agent-lldb" />
+            <entry key="Debugger-api" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Debug/Debugger-api" />
+            <entry key="Debugger-gadp" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Debug/Debugger-gadp" />
+            <entry key="Debugger-isf" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Debug/Debugger-isf" />
+            <entry key="Debugger-jpda" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Debug/Debugger-jpda" />
+            <entry key="Debugger-rmi-trace" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Debug/Debugger-rmi-trace" />
+            <entry key="Debugger-swig-lldb" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Debug/Debugger-swig-lldb" />
+            <entry key="Decompiler" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/Decompiler" />
+            <entry key="DecompilerDependent" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/DecompilerDependent" />
+            <entry key="DemanglerGnu" value="/opt/ghidra_11.0.3_PUBLIC/GPL/DemanglerGnu" />
+            <entry key="Docking" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Framework/Docking" />
+            <entry key="Emulation" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Framework/Emulation" />
+            <entry key="FileFormats" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/FileFormats" />
+            <entry key="FileSystem" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Framework/FileSystem" />
+            <entry key="Framework-AsyncComm" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Debug/Framework-AsyncComm" />
+            <entry key="Framework-Debugging" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Debug/Framework-Debugging" />
+            <entry key="Framework-TraceModeling" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Debug/Framework-TraceModeling" />
+            <entry key="FunctionGraph" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/FunctionGraph" />
+            <entry key="FunctionGraphDecompilerExtension" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/FunctionGraphDecompilerExtension" />
+            <entry key="FunctionID" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/FunctionID" />
+            <entry key="Generic" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Framework/Generic" />
+            <entry key="GhidraGo" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/GhidraGo" />
+            <entry key="GhidraServer" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/GhidraServer" />
+            <entry key="GnuDemangler" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/GnuDemangler" />
+            <entry key="Graph" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Framework/Graph" />
+            <entry key="GraphFunctionCalls" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/GraphFunctionCalls" />
+            <entry key="GraphServices" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/GraphServices" />
+            <entry key="Gui" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Framework/Gui" />
+            <entry key="HCS08" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/HCS08" />
+            <entry key="HCS12" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/HCS12" />
+            <entry key="Help" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Framework/Help" />
+            <entry key="JVM" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/JVM" />
+            <entry key="Loongarch" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/Loongarch" />
+            <entry key="M8C" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/M8C" />
+            <entry key="MC6800" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/MC6800" />
+            <entry key="MCS96" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/MCS96" />
+            <entry key="MIPS" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/MIPS" />
+            <entry key="MicrosoftCodeAnalyzer" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/MicrosoftCodeAnalyzer" />
+            <entry key="MicrosoftDemangler" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/MicrosoftDemangler" />
+            <entry key="MicrosoftDmang" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/MicrosoftDmang" />
+            <entry key="PA-RISC" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/PA-RISC" />
+            <entry key="PDB" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/PDB" />
+            <entry key="PIC" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/PIC" />
+            <entry key="PowerPC" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/PowerPC" />
+            <entry key="ProgramDiff" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/ProgramDiff" />
+            <entry key="ProgramGraph" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/ProgramGraph" />
+            <entry key="Project" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Framework/Project" />
+            <entry key="ProposedUtils" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Debug/ProposedUtils" />
+            <entry key="Pty" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Framework/Pty" />
+            <entry key="Public_Release" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Configurations/Public_Release" />
+            <entry key="Python" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/Python" />
+            <entry key="RISCV" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/RISCV" />
+            <entry key="Recognizers" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/Recognizers" />
+            <entry key="Sarif" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/Sarif" />
+            <entry key="SoftwareModeling" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Framework/SoftwareModeling" />
+            <entry key="SourceCodeLookup" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/SourceCodeLookup" />
+            <entry key="Sparc" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/Sparc" />
+            <entry key="SuperH" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/SuperH" />
+            <entry key="SuperH4" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/SuperH4" />
+            <entry key="SystemEmulation" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/SystemEmulation" />
+            <entry key="TI_MSP430" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/TI_MSP430" />
+            <entry key="TaintAnalysis" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Debug/TaintAnalysis" />
+            <entry key="Utility" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Framework/Utility" />
+            <entry key="V850" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/V850" />
+            <entry key="VersionTracking" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/VersionTracking" />
+            <entry key="VersionTrackingBSim" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Features/VersionTrackingBSim" />
+            <entry key="Xtensa" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/Xtensa" />
+            <entry key="Z80" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/Z80" />
+            <entry key="eBPF" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/eBPF" />
+            <entry key="tricore" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/tricore" />
+            <entry key="x86" value="/opt/ghidra_11.0.3_PUBLIC/Ghidra/Processors/x86" />
+          </map>
+        </option>
+        <option name="settingsPath" value="$USER_HOME$/.ghidra/.ghidra_11.0.3_PUBLIC" />
+        <option name="version" value="11.0.3" />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Ghidra" level="project" />
+  </component>
+</module>
