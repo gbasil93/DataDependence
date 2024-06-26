@@ -18,7 +18,7 @@ import ghidra.program.model.address.*;
 public class Lab4 extends GhidraScript {
 
     public void run() throws Exception {
-        Function cFunction = getFunctionAt(getAddressFactory().getAddress("0x004010C0"));
+        Function cFunction = getFunctionAt(getAddressFactory().getAddress("0x00401199"));
 //        extractInfoForAllInstructionsForFunction(cFunction);
         runSingleFunction(cFunction);
     }
@@ -212,8 +212,40 @@ public class Lab4 extends GhidraScript {
                 edgeList.add(new Edge(currentNode, flowNode));
                 flowNode.previousFlows.add(currentNode);
             }
+            Set<List<Node>> possiblePaths = findPathsToNode(currentNode);
+            println("Paths to " + currentNode.name);
+            for (List<Node> path : possiblePaths){
+                path.remove(0);
+                printPath(path);
+            }
+            currentNode.calculateDataDependencies(possiblePaths);
         }
         return edgeList;
+    }
+
+    private void printPath(List<Node> nodePath) {
+        StringBuilder sb = new StringBuilder();
+        for (Node currentNode : nodePath) {
+            sb.append(currentNode.name).append("->");
+        }
+        println(sb.toString());
+    }
+
+    private Set<List<Node>> findPathsToNode(Node node) {
+        Set<List<Node>> possiblePaths = new HashSet<>();
+        if (node.previousFlows.isEmpty()) {
+            possiblePaths.add(new LinkedList<>(Collections.singletonList(node)));
+            return possiblePaths;
+        } else {
+            for (Node previousNode : node.previousFlows) {
+                Set<List<Node>> newPaths = findPathsToNode(previousNode);
+                for (List<Node> newPath : newPaths) {
+                    newPath.add(0, node);
+                    possiblePaths.add(newPath);
+                }
+            }
+        }
+        return possiblePaths;
     }
 
     /**
@@ -224,7 +256,6 @@ public class Lab4 extends GhidraScript {
      */
     private List<Node> createNodeList(Instruction instruction) {
         List<Node> nodes = new LinkedList<>();
-        List<String> edges = new LinkedList<>();
         Function functionAfter = getFunctionAfter(instruction.getAddress());
 
         int instructionCtr= 1;
@@ -234,8 +265,7 @@ public class Lab4 extends GhidraScript {
             } else if (functionAfter != null && instruction.getAddress().compareTo(functionAfter.getEntryPoint()) >= 0) {
                 break;
             }
-            String labelString = instruction.getAddressString(false, false);
-            Node cNode = new Node("n" + instructionCtr++, labelString, instruction);
+            Node cNode = new Node("n" + instructionCtr++, instruction);
             nodes.add(cNode);
             instruction = instruction.getNext();
         }
@@ -292,25 +322,35 @@ public class Lab4 extends GhidraScript {
         private String label;
         private Set<String> defs;
         private Set<String> uses;
+        private Set<String> dataDependencies;
         private Instruction instruction;
         private Set<Node> previousFlows;
 
-        public Node(String name, String label, Instruction instruction) {
+        public Node(String name, Instruction instruction) {
             this.name = name;
-//            this.label = "0x" + label + ";";
-            this.label = instruction + "; ";
+            this.label = name.equals("n1") ? "START" : "0x" + instruction.getAddressString(false, false);
             this.instruction = instruction;
             this.defs = new HashSet<>();
             this.uses = new HashSet<>();
             this.previousFlows = new HashSet<>();
+            this.dataDependencies = new HashSet<>();
             parseOperands();
-//            getOperandInfo();
-//            defs.addAll(getInstructionDefs());
-//            uses.addAll(getInstructionUses());
-//            defs.addAll(getDefs());
-//            uses.addAll(getUses());
-            updateLabelWithDefs();
-            updateLabelWithUses();
+        }
+
+        public void calculateDataDependencies(Set<List<Node>> possiblePaths) {
+            for (String use : this.uses) {
+                for (List<Node> path : possiblePaths) {
+                    this.dataDependencies.add(findMostRecentDef(path, use));
+                }
+            }
+        }
+
+        public List<Address> getPossibleFlows() {
+            List<Address> possibleFlows = new LinkedList<>(Arrays.asList(instruction.getFlows()));
+            if (instruction.hasFallthrough()) {
+                possibleFlows.add(instruction.getDefaultFallThrough());
+            }
+            return possibleFlows;
         }
 
         private void parseOperands() {
@@ -331,9 +371,6 @@ public class Lab4 extends GhidraScript {
                         uses.add(opObject.toString());
                     }
                 }
-                if (operandRefType.isConditional()) {
-
-                }
             }
             if (instruction.getMnemonicString().compareToIgnoreCase("PUSH") == 0) {
                 defs.addAll(List.of(new String[]{"ESP", "[ESP]"}));
@@ -341,27 +378,22 @@ public class Lab4 extends GhidraScript {
             } else if (instruction.getMnemonicString().compareToIgnoreCase("POP") == 0) {
                 defs.addAll(List.of(new String[]{"ESP"}));
                 uses.addAll(List.of(new String[]{"ESP", "[ESP]"}));
-            } else if (instruction.getMnemonicString().compareToIgnoreCase("cmp") == 0) {
+            } else if (instruction.getMnemonicString().compareToIgnoreCase("CMP") == 0) {
                 defs.add("EFLAGS");
-            } else if (instruction.getMnemonicString().compareToIgnoreCase("test") == 0) {
+            } else if (instruction.getMnemonicString().compareToIgnoreCase("TEST") == 0) {
                 defs.add("EFLAGS");
             } else if (instruction.getFlowType().isConditional()) {
                 uses.add("EFLAGS");
             }
         }
 
-        private void updateLabelWithDefs() {
-            label += " D: ";
-            if (!defs.isEmpty()) {
-                label += String.join(", ", defs) + " ";
+        private String findMostRecentDef(List<Node> reversePath, String use) {
+            for (Node testNode : reversePath) {
+                if (testNode.defs.stream().anyMatch(def -> def.equals(use))) {
+                    return testNode.label;
+                }
             }
-        }
-
-        private void updateLabelWithUses() {
-            label += "U: ";
-            if (!uses.isEmpty()) {
-                label += String.join(", ", uses);
-            }
+            return "START";
         }
 
 //        private void getOperandInfo() {
@@ -441,17 +473,21 @@ public class Lab4 extends GhidraScript {
 //            return list;
 //        }
 
-        public List<Address> getPossibleFlows() {
-            List<Address> possibleFlows = new LinkedList<>(Arrays.asList(instruction.getFlows()));
-            if (instruction.hasFallthrough()) {
-                possibleFlows.add(instruction.getDefaultFallThrough());
-            }
-            return possibleFlows;
-        }
-
         @Override
         public String toString() {
-            return String.format("%s [label =\"%s\"];", name, label);
+            String defString = "";
+            if (!defs.isEmpty()) {
+                defString += String.join(", ", defs);
+            }
+            String useString = "";
+            if (!uses.isEmpty()) {
+                useString += String.join(", ", uses);
+            }
+            String ddString = "";
+            if (!dataDependencies.isEmpty()) {
+                ddString += String.join(", ", dataDependencies);
+            }
+            return String.format("%s [label =\"%s; DD: %s\"];\t// D: %s U: %s ", name, label, ddString, defString, useString);
         }
     }
 
